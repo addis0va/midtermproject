@@ -21,11 +21,11 @@ public class Coach {
 
     private String name;
 
-    @OneToMany(mappedBy = "coach")
+    @OneToMany(mappedBy = "coach_id")
     private List<Clients> clients;
 
     @ManyToOne
-    @JoinColumn(name = "program_id")
+    @JoinColumn(name = "programs_id")
     private Programs program;
 
     public Long getId() {

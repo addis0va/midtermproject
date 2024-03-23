@@ -20,7 +20,7 @@ public class Programs {
 
     private String title;
 
-    @OneToMany(mappedBy = "program")
+    @OneToMany(mappedBy = "programs_id")
     private List<Clients> clients;
 
     public Long getId() {

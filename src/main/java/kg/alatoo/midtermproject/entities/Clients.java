@@ -24,7 +24,7 @@ public class Clients {
     private Coach coach;
 
     @ManyToOne
-    @JoinColumn(name = "program_id")
+    @JoinColumn(name = "programs_id")
     private Programs programs;
 
     public Long getId() {
