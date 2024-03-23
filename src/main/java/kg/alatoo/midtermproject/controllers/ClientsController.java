@@ -1,5 +1,6 @@
 package kg.alatoo.midtermproject.controllers;
 
+import jakarta.validation.Valid;
 import kg.alatoo.midtermproject.entities.Clients;
 import kg.alatoo.midtermproject.services.ClientsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,9 @@ public class ClientsController {
                     .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
         }
 
+
         @PostMapping
-        public ResponseEntity<Clients> createClient(@RequestBody Clients clients) {
+        public ResponseEntity<Clients> createClient(@Valid @RequestBody Clients clients) {
             Clients savedClient = clientsService.saveClient(clients);
             return new ResponseEntity<>(savedClient, HttpStatus.CREATED);
         }
@@ -41,5 +43,7 @@ public class ClientsController {
             clientsService.deleteClient(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
+
+
 }
 
