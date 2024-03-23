@@ -1,9 +1,11 @@
 package kg.alatoo.midtermproject.controllers;
 
+import ch.qos.logback.core.net.server.Client;
 import jakarta.validation.Valid;
 import kg.alatoo.midtermproject.entities.Clients;
 import kg.alatoo.midtermproject.services.ClientsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +17,10 @@ import java.util.Optional;
 @RequestMapping("/clients")
 public class ClientsController {
 
+
     @Autowired
     private ClientsService clientsService;
+
 
     @GetMapping
     public ResponseEntity<List<Clients>> getAllClients() {
